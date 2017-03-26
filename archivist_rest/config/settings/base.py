@@ -20,10 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c=6!3#_*6mb#l+t8jxd5@yx3&$jo0^r5t-ivc4wmr52y50+5-2'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = []
 
@@ -40,7 +37,7 @@ PREREQ_APPS = [
 ]
 
 PROJECT_APPS = [
-    'core'
+    'core.apps.CoreConfig'
 ]
 
 INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
@@ -55,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'archivist_rest.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'archivist_rest.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
